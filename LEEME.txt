@@ -1,0 +1,9 @@
+TALLER 11 COMPLETO
+
+Hay siete proyectos Java independientes, uno por ejercicio. Cada carpeta contiene src con sus clases, un README y se puede compilar por separado. El documento Documento_Explicaciones_Taller11.txt contiene el resumen para preparar el PDF de entrega.
+
+Comando dentro de cada carpeta:
+javac -d out src/*.java
+java -cp out Main
+
+Importante: las soluciones fueron construidas con base en el enunciado del PDF; no se dispuso de los archivos fuente originales del repositorio. Revisa las salidas y adapta cualquier formato exacto que exija el repositorio del docente.

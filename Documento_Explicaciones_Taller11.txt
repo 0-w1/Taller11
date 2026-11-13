@@ -1,0 +1,36 @@
+TALLER 11 – PATRONES DE DISEÑO CREACIONALES
+Programación 1
+
+Juan Sebastián Moreno Suarez - Juan Felipe Ramirez Cabeza 
+
+1. Domicilios Rapidito
+Patrón aplicado: Singleton.
+En el código original se crean varios objetos ConfiguracionApp con new, por lo que cada clase conserva una configuración diferente. Se aplica Singleton mediante una instancia estática y un constructor privado. PanelAdmin, CalculadoraDomicilio y AppRepartidor consultan la misma instancia. Así el recargo de lluvia se comparte entre todos.
+
+2. BancoPlata
+Patrón aplicado: Factory Method.
+El bloque de if/else crea directamente cada canal y tendría que modificarse para agregar otro. Se define la interfaz CanalNotificacion y una fábrica concreta para cada canal. ServicioNotificaciones recibe una fábrica y utiliza el canal creado, sin decidir su clase concreta.
+
+3. BurgerLab
+Patrón aplicado: Builder.
+El constructor original recibe muchos parámetros booleanos y valores null, lo que hace difícil identificar cada ingrediente. Builder permite indicar los ingredientes por nombre. La proteína y las porciones son obligatorias, el pan inicia como brioche, la salsa queda vacía por defecto y build valida que las porciones no superen tres.
+
+4. Viajes Andinos
+Patrón aplicado: Builder.
+Los constructores sobrecargados y setters permiten paquetes incompletos o inválidos. Builder permite agregar únicamente los servicios elegidos. Los atributos son final y no existen setters, por lo que el paquete queda inmutable. Al construir se valida el destino y que haya al menos una noche.
+
+5. EPS SaludYa
+Patrón aplicado: Singleton.
+Cada ventanilla y el kiosco creaban su propio GeneradorTurnos, haciendo que los números se repitieran. Se utiliza una única instancia con constructor privado. El método generarTurno es sincronizado y entrega una secuencia compartida.
+
+6. Dungeon Libre
+Patrón aplicado: Factory Method.
+El ciclo principal contiene condicionales para decidir qué enemigo crear según el nivel. Se define Nivel con el método crearEnemigo y cada nivel implementa su propia creación. El recorrido solo solicita enemigos y los hace atacar; Volcan crea Dragones sin modificar el ciclo.
+
+7. CineLibre
+Patrón aplicado: Singleton y Builder.
+El sistema original crea un MapaSillas distinto por canal y construye boletas con varios parámetros. Singleton comparte el mapa de sillas entre taquilla y aplicación y evita vender dos veces la misma silla. Builder hace legible la creación de boletas y valida que película y silla sean obligatorias.
+
+Ejecución: desde la carpeta de cada ejercicio ejecutar javac -d out src/*.java y luego java -cp out Main. Las salidas de consola permiten verificar los comportamientos principales.
+
+Nota: el código se reconstruyó a partir de los enunciados del PDF del taller; no se contó con los archivos Java originales del ZIP mencionado en las instrucciones. Por ello, las implementaciones son soluciones independientes que cumplen los requisitos descritos, no modificaciones línea por línea del repositorio original.
